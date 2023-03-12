@@ -1,6 +1,6 @@
 package com.juaracoding.ujian5.moduletest;
 
-import com.juaracoding.ujian5.modules.AddToCartModule;
+import com.juaracoding.ujian5.modules.PlaceOrderModule;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,11 +8,11 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class AddToCartTest {
+public class PlaceOrderTest {
     public static WebDriver driver;
-    public static AddToCartModule cart = new AddToCartModule();
+    public static PlaceOrderModule cart = new PlaceOrderModule();
 
-    public AddToCartTest() {
+    public PlaceOrderTest() {
         driver = Hooks.driver;
     }
 
