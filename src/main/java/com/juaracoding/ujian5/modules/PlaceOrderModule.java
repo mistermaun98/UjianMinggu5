@@ -30,12 +30,33 @@ public class PlaceOrderModule {
     @FindBy(xpath = "//div[@role='alert']")
     WebElement cartAlert;
 
+    @FindBy(xpath = "//span[@class='cart-name-and-total']")
+    WebElement mainPageCartBtn;
+
+    @FindBy(xpath = "//a[normalize-space()='Proceed to checkout']")
+    WebElement checkoutBtn;
+
+    @FindBy(xpath = "//h1[normalize-space()='Checkout']")
+    WebElement checkoutPage;
+
     public void pickProduct() {
         product.click();
     }
 
     public void addToCart() {
         btnAddCart.click();
+    }
+
+    public void cartFromMainPage() {
+        mainPageCartBtn.click();
+    }
+
+    public void checkoutProduct() {
+        checkoutBtn.click();
+    }
+
+    public String checkoutPageValidation(){
+        return checkoutPage.getText();
     }
 
     public void pickColor() {
