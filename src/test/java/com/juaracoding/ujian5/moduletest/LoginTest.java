@@ -25,19 +25,26 @@ public class LoginTest {
         lm.goToMyAccount();
     }
 
+    @When("^Logout from account dashboard$")
+    public void logout_from_account_dashboard() {
+        lm.logout();
+    }
+
     @When("^User enter valid username and password$")
     public void user_enter_valid_username_and_password(){
         Hooks.delay(1);
         lm.loginCredentials("hood101","Hood_Bismarck101");
     }
 
-    @When("^User enter invalid username and valid password$")
+    @And("^User enter invalid username and valid password$")
     public void user_enter_invalid_username_and_valid_password() {
         lm.loginCredentials("bismarck101","Hood_Bismarck101");
     }
 
     @When("^User enter valid username and invalid password$")
     public void user_enter_valid_username_and_invalid_password() {
+        lm.loginFormPurge();
+        Hooks.delay(2);
         lm.loginCredentials("hood101","aselolejoss");
     }
 

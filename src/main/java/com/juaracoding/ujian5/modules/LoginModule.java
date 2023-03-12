@@ -61,4 +61,9 @@ public class LoginModule {
         this.username.sendKeys(username);
         this.password.sendKeys(password);
     }
+
+    public void loginFormPurge() {
+        username.clear();
+        password.clear();
+    }
 }
