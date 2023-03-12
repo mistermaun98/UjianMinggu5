@@ -27,6 +27,9 @@ public class LoginModule {
     @FindBy(xpath = "//strong[1]")
     WebElement validatePage;
 
+    @FindBy(xpath = "//a[normalize-space()='Log out']")
+    WebElement logoutBtn;
+
     public String validatePageAfterLogin() {
         return validatePage.getText();
     }
@@ -35,10 +38,20 @@ public class LoginModule {
         cookieReminder.click();
     }
 
-    public void loginCredentials(String username, String password) {
+    public void goToMyAccount() {
         myAccount.click();
+    }
+
+    public void clickLoginBtn() {
+        btnLogin.click();
+    }
+
+    public void logout() {
+        logoutBtn.click();
+    }
+
+    public void loginCredentials(String username, String password) {
         this.username.sendKeys(username);
         this.password.sendKeys(password);
-        btnLogin.click();
     }
 }
