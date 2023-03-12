@@ -4,13 +4,14 @@ import com.juaracoding.ujian5.drivers.DriverSingleton;
 import com.juaracoding.ujian5.modules.LoginModule;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import org.openqa.selenium.WebDriver;
 
 public class Hooks {
     public static WebDriver driver;
     public static LoginModule login = new LoginModule();
 
-    @Before
+    @BeforeAll
     public static void setUp() {
         DriverSingleton.getInstance("chrome");
         driver = DriverSingleton.getDriver();
