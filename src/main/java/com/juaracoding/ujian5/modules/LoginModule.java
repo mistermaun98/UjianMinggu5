@@ -30,6 +30,9 @@ public class LoginModule {
     @FindBy(xpath = "//a[normalize-space()='Log out']")
     WebElement logoutBtn;
 
+    @FindBy(xpath = "//div[@id='primary']//li[1]")
+    WebElement loginErrMsg;
+
     public String validatePageAfterLogin() {
         return validatePage.getText();
     }
@@ -48,6 +51,10 @@ public class LoginModule {
 
     public void logout() {
         logoutBtn.click();
+    }
+
+    public String fetchLoginErrorMsg() {
+        return loginErrMsg.getText();
     }
 
     public void loginCredentials(String username, String password) {

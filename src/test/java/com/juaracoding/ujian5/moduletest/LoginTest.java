@@ -30,6 +30,17 @@ public class LoginTest {
         Hooks.delay(1);
         lm.loginCredentials("hood101","Hood_Bismarck101");
     }
+
+    @When("^User enter invalid username and valid password$")
+    public void user_enter_invalid_username_and_valid_password() {
+        lm.loginCredentials("bismarck101","Hood_Bismarck101");
+    }
+
+    @When("^User enter valid username and invalid password$")
+    public void user_enter_valid_username_and_invalid_password() {
+        lm.loginCredentials("hood101","aselolejoss");
+    }
+
     @And("^User click login button$")
     public void user_click_login_button(){
         lm.clickLoginBtn();
@@ -38,5 +49,10 @@ public class LoginTest {
     @Then("^User redirected to MyAccount dashboard page$")
     public void user_redirected_to_myaccount_dashboard_page(){
         Assert.assertEquals(lm.validatePageAfterLogin(),"hood101");
+    }
+
+    @Then("^Error message shown to user$")
+    public void error_message_shown_to_user() {
+        Assert.assertTrue(lm.fetchLoginErrorMsg().contains("ERROR: The username or password you entered is incorrect"));
     }
 }
